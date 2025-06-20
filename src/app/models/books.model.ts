@@ -10,10 +10,15 @@ const noteSchema = new Schema<IBook>({
         trim: true,
         enum: ["FICTION", "NON_FICTION", "SCIENCE", "HISTORY", "BIOGRAPHY", "FANTASY"]
     },
+
     isbn: { type: String, required: true, trim: true, unique: true },
+
     description: { type: String, default: '', trim: true },
+
     copies: { type: String, required: true, trim: true },
+
     available: { type: Boolean, default: true },
+    
 }, { versionKey: false, timestamps: true }
 )
 
