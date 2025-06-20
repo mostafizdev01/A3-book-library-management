@@ -33,6 +33,12 @@ app.get('/books', async (req: Request, res: Response) => {
     }
 })
 
+app.use((req, res, next) => {
+  console.log(`❗️Route not found: ${req.originalUrl}`);
+  res.status(404).json({ message: "Route not found" });
+  next()
+});
+
 app.get('/books/:bookId', async (req: Request, res: Response) => {
     try {
         const book = await Book.find()

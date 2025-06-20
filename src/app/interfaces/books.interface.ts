@@ -1,10 +1,11 @@
-// import { Types } from "mongoose";
+import { Types } from "mongoose";
 
 export interface IBook {
     title: string
-    // content: string,
-    // category: string,
-    // pinned: boolean,
-    // tags: string,
-    // userId: Types.ObjectId
+    author: string,
+    genre: string,
+    isbn: string,
+    description: string,
+    copies: string,
+    available: boolean
 }
