@@ -33,6 +33,19 @@ app.get('/books', async (req: Request, res: Response) => {
     }
 })
 
+app.get('/books/:bookId', async (req: Request, res: Response) => {
+    try {
+        const book = await Book.find()
+        res.status(201).json({
+            success: true,
+            message: "Note created successfully ✅",
+            book
+        })
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 
 app.get('/', (req: Request, res: Response) => {
     res.send("Wellcome to my webserver..")
