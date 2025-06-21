@@ -8,6 +8,10 @@ export const borrowRoutes = express.Router()
 borrowRoutes.post('/create-borrow', async (req: Request, res: Response) => {
     try {
         const body = req.body;
+
+        //// used static model
+        await Borrows.BorrowCalculate(body.book, body.quantity)
+        
         const data = await Borrows.create(body)
 
         res.status(201).json({
@@ -15,7 +19,11 @@ borrowRoutes.post('/create-borrow', async (req: Request, res: Response) => {
             message: "Book borrow successfully ✅",
             data
         })
-    } catch (error) {
-        console.log(error);
+    } catch (error: any) {
+         res.status(401).json({
+            success: false,
+            message: "Borrow Faild",
+            error: error.message
+        })
     }
 })
