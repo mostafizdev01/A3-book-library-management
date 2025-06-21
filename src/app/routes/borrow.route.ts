@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express"
-import { Borrow } from "../models/borrow.model";
+import { Borrows } from "../models/borrow.model";
 
 export const borrowRoutes = express.Router()
 
@@ -8,7 +8,7 @@ export const borrowRoutes = express.Router()
 borrowRoutes.post('/create-borrow', async (req: Request, res: Response) => {
     try {
         const body = req.body;
-        const data = await Borrow.create(body)
+        const data = await Borrows.create(body)
 
         res.status(201).json({
             success: true,

@@ -20,4 +20,5 @@ const borrowSchema = new Schema<IBorrow>({
 }, { versionKey: false, timestamps: true }
 )
 
-export const Borrow = model<IBorrow>("Borrow", borrowSchema)
+
+export const Borrows = model<IBorrow>("Borrow", borrowSchema)
