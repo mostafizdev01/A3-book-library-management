@@ -23,15 +23,28 @@ bookRoutes.post('/create-book', async (req: Request, res: Response) => {
 // find all book data
 bookRoutes.get('/', async (req: Request, res: Response) => {
     try {
-        const data = await Book.find()
-        res.status(201).json({
+        const { filter, sortBy = 'createdAt', sort = 'desc', limit = '10' } = req.query;
+
+        // Filtering
+        const filterCondition = filter ? { genre: filter } : {};
+
+        // Sorting
+        const sortCondition: { [sortBy: string]: 1 | -1 } = {};
+        sortCondition[sortBy as string] = sort === 'asc' ? 1 : -1;
+
+        // Fetch from DB
+        const books = await Book.find(filterCondition)
+            .sort(sortCondition)
+            .limit(Number(limit));
+
+        res.json({
             success: true,
-            message: "Book finded successfully ✅",
-            data
-        })
+            message: "Books retrieved successfully",
+            data: books,
+        });
     } catch (error) {
-        console.log(error);
-    }
+    console.log(error);
+}
 })
 
 // find single book
