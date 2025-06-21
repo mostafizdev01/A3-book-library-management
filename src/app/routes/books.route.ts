@@ -1,13 +1,23 @@
 import express, { Request, Response } from "express"
 import { Book } from "../models/books.model";
+import { z } from "zod";
 
 export const bookRoutes = express.Router()
 
+const CreateBookZod = z.object({
+    title: z.string(),
+    author: z.string(),
+    genre: z.string(),
+    isbn: z.string(),
+    description: z.string().optional(),
+    copies: z.number(),
+    available: z.boolean()
+})
 
 // create book
 bookRoutes.post('/create-book', async (req: Request, res: Response) => {
     try {
-        const body = req.body;
+        const body = await CreateBookZod.parseAsync(req.body);
         const data = await Book.create(body)
 
         res.status(201).json({
@@ -16,7 +26,11 @@ bookRoutes.post('/create-book', async (req: Request, res: Response) => {
             data
         })
     } catch (error) {
-        console.log(error);
+          res.status(403).json({
+            success: false,
+            message: "Validation failed",
+            error
+        })
     }
 })
 
@@ -43,8 +57,8 @@ bookRoutes.get('/', async (req: Request, res: Response) => {
             data: books,
         });
     } catch (error) {
-    console.log(error);
-}
+        console.log(error);
+    }
 })
 
 // find single book

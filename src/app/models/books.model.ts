@@ -15,7 +15,7 @@ const noteSchema = new Schema<IBook>({
 
     description: { type: String, default: '', trim: true },
 
-    copies: { type: String, required: true, trim: true },
+    copies: { type: Number, required: true, trim: true, min: 1 },
 
     available: { type: Boolean, default: true },
     
