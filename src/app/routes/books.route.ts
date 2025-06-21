@@ -26,7 +26,7 @@ bookRoutes.post('/create-book', async (req: Request, res: Response) => {
             data
         })
     } catch (error) {
-          res.status(403).json({
+        res.status(403).json({
             success: false,
             message: "Validation failed",
             error
@@ -66,6 +66,12 @@ bookRoutes.get('/:bookId', async (req: Request, res: Response) => {
     try {
         const bookId = req.params.bookId
         const data = await Book.findById(bookId)
+        if (data === null) {
+            res.status(301).json({
+                success: false,
+                message: "Book Not Available 🤕"
+            })
+        }
         res.status(201).json({
             success: true,
             message: "Book finded successfully ✅",
@@ -82,6 +88,12 @@ bookRoutes.put('/:bookId', async (req: Request, res: Response) => {
         const bookId = req.params.bookId;
         const updatedBody = req.body;
         const data = await Book.findByIdAndUpdate(bookId, updatedBody, { new: true })
+        if (data === null) {
+            res.status(301).json({
+                success: false,
+                message: "Book Not Available 🤕"
+            })
+        }
         res.status(201).json({
             success: true,
             message: "Book Updated successfully ✅",
@@ -97,9 +109,15 @@ bookRoutes.delete('/:bookId', async (req: Request, res: Response) => {
     try {
         const bookId = req.params.bookId;
         const data = await Book.findByIdAndDelete(bookId)
+        if (data === null) {
+            res.status(301).json({
+                success: false,
+                message: "Book Not Available 🤕"
+            })
+        }
         res.status(201).json({
             success: true,
-            message: "Book Deleted successfully ✅",
+            message: "Book deleted successfully ✅",
             data
         })
     } catch (error) {
