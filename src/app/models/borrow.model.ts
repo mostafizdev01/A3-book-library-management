@@ -46,11 +46,9 @@ borrowSchema.static("BorrowCalculate", async function (bookId: string, bQuantity
         book.available = false
         return
     }
-
     await book.save();
-
     return;
 })
 
 
-export const Borrows = model<IBorrow, BorrowStaticMethod>("Borrow", borrowSchema)
+export const Borrows = model<IBorrow, BorrowStaticMethod>("borrow", borrowSchema)
