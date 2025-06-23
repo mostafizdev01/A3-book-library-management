@@ -22,7 +22,7 @@
 - এই লজিকগুলো Mongoose এর instance/static methods এবং middleware দিয়ে নিয়ন্ত্রণ করেছি।
 
 ### ৩. API Endpoints  
-- **Create Book:** POST `/api/books`  
+- **Create Book:** POST `/api/books/create-book`  
 - **Get All Books:** GET `/api/books` (ফিল্টার, সোর্ট, লিমিট সাপোর্ট করে)  
 - **Get Book By ID:** GET `/api/books/:bookId`  
 - **Update Book:** PUT `/api/books/:bookId`  
