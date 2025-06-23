@@ -27,7 +27,7 @@
 - **Get Book By ID:** GET `/api/books/:bookId`  
 - **Update Book:** PUT `/api/books/:bookId`  
 - **Delete Book:** DELETE `/api/books/:bookId`  
-- **Borrow Book:** POST `/api/borrow`  
+- **Borrow Book:** POST `/api/borrows/create-borrow`  
 - **Borrowed Books Summary:** GET `/api/borrow` (Aggregation pipeline দিয়ে সারাংশ প্রদান করে)
 
 ### ৪. Aggregation Pipeline  
