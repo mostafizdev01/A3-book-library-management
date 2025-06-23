@@ -22,12 +22,12 @@
 - এই লজিকগুলো Mongoose এর instance/static methods এবং middleware দিয়ে নিয়ন্ত্রণ করেছি।
 
 ### ৩. API Endpoints  
-- **Create Book:** POST `/api/books/create-book`  
+- **Create Book:** POST `/api/book`  
 - **Get All Books:** GET `/api/books` (ফিল্টার, সোর্ট, লিমিট সাপোর্ট করে)  
 - **Get Book By ID:** GET `/api/books/:bookId`  
 - **Update Book:** PUT `/api/books/:bookId`  
 - **Delete Book:** DELETE `/api/books/:bookId`  
-- **Borrow Book:** POST `/api/borrows/create-borrow`  
+- **Borrow Book:** POST `/api/borrow`  
 - **Borrowed Books Summary:** GET `/api/borrow` (Aggregation pipeline দিয়ে সারাংশ প্রদান করে)
 
 ### ৪. Aggregation Pipeline  
