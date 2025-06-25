@@ -15,7 +15,7 @@ const CreateBookZod = z.object({
 })
 
 // create book
-bookRoutes.post('/create-book', async (req: Request, res: Response) => {
+bookRoutes.post('/', async (req: Request, res: Response) => {
     try {
         const body = await CreateBookZod.parseAsync(req.body);
         const data = await Book.create(body)
@@ -77,8 +77,12 @@ bookRoutes.get('/:bookId', async (req: Request, res: Response) => {
             message: "Book finded successfully ✅",
             data
         })
-    } catch (error) {
-        console.log(error);
+    } catch (error: any) {
+        res.status(301).json({
+            success: false,
+            message: "Book Not Available 🤕",
+            error: error.message
+        })
     }
 })
 
@@ -99,8 +103,11 @@ bookRoutes.put('/:bookId', async (req: Request, res: Response) => {
             message: "Book Updated successfully ✅",
             data
         })
-    } catch (error) {
-        console.log(error);
+    } catch (error: any) {
+        res.status(301).json({
+            success: false,
+            error: error.message
+        })
     }
 })
 

@@ -6,8 +6,8 @@ const app: Application = express();
 
 /// useing middleware
 app.use(express.json());
-app.use('/books', bookRoutes)
-app.use('/borrows', borrowRoutes)
+app.use('/api/books', bookRoutes)
+app.use('/api/borrow', borrowRoutes)
 
 // 404 routes
 app.use((req, res, next) => {
