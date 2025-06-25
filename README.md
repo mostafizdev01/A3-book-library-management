@@ -62,8 +62,8 @@
 ## Explaination video link:-  
 - https://drive.google.com/file/d/1kYki3kRpXVk_PKDcKiiXpJp6SlhLQ6oY/view?usp=sharing
 
-## Explaination video link:-  
-- https://drive.google.com/file/d/1kYki3kRpXVk_PKDcKiiXpJp6SlhLQ6oY/view?usp=sharing
+## Live Deployment link:-  
+- https://a3-book-library-management.vercel.app
 
 ---
 
