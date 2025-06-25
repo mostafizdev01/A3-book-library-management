@@ -56,6 +56,14 @@
 - Middleware ও Mongoose methods দিয়ে বিজনেস লজিক ইমপ্লিমেন্ট করেছি।  
 - Aggregation pipeline নিয়ে ভালো ধারণা পেয়েছি।  
 - Proper Validation ও Error Handling করা শিখেছি।
+  
+---
+
+## Explaination video link:-  
+- https://drive.google.com/file/d/1kYki3kRpXVk_PKDcKiiXpJp6SlhLQ6oY/view?usp=sharing
+
+## Explaination video link:-  
+- https://drive.google.com/file/d/1kYki3kRpXVk_PKDcKiiXpJp6SlhLQ6oY/view?usp=sharing
 
 ---
 
