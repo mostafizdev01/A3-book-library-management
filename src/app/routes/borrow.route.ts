@@ -6,7 +6,7 @@ export const borrowRoutes = express.Router()
 
 
 /// create borrow
-borrowRoutes.post('/create-borrow', async (req: Request, res: Response) => {
+borrowRoutes.post('/', async (req: Request, res: Response) => {
     try {
         const body = req.body;
 
